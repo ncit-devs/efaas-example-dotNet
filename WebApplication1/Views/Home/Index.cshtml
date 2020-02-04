@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model WebApplication1.Controllers.HomeVM
+@using Microsoft.AspNetCore.Authentication
+
+
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+
+        <h2>Claims</h2>
+
+        <table style="text-align:left;">
+
+
+            @foreach (var claim in User.Claims)
+            {
+                <tr>
+
+                    <th>@claim.Type</th>
+                    <td>@claim.Value</td>
+                </tr>
+            }
+
+
+        </table>
+
+        <h2>Tokens</h2>
+
+        <table style="text-align:left;">
+
+            <tr>
+                <th>id_token</th>
+                <td>@Model.Id_token</td>
+            </tr>
+
+            <tr>
+                <th>Access token</th>
+                <td>@Model.Access_token</td>
+            </tr>
+
+
+        </table>
+
+    </div>
